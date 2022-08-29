@@ -45,12 +45,12 @@ public class CalculatorControler {
     @GetMapping("/divide")
     public String divide(@RequestParam("num1") int a,
                          @RequestParam("num2") int b){
-    if (b == 0){
-        return "на ноль делить нельзя";
-    }
-             return BuildResult(a,b, calculatorService.divide(a, b),"/");
+        if (b == 0){
+            return "на ноль делить нельзя";
+        }
+        return BuildResult(a,b, calculatorService.divide(a, b),"/");
     }
     private String BuildResult(int a, int b, Number result, String operation){
-    return String.format("%d %s %d = %s",a, operation, b, result.toString());
+        return String.format("%d %s %d = %s",a, operation, b, result.toString());
     }
 }
